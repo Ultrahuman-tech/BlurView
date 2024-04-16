@@ -13,6 +13,7 @@ android {
         minSdkVersion 14
         targetSdkVersion 31
     }
+    namespace 'eightbitlab.com.blurview'
 }
 
 configurations {
@@ -36,11 +37,11 @@ task androidJavadocs(type: Javadoc) {
 }
 
 task androidJavadocsJar(type: Jar, dependsOn: androidJavadocs) {
-    classifier = 'javadoc'
+    archiveClassifier = 'javadoc'
     from androidJavadocs.destinationDir
 }
 
 task androidSourcesJar(type: Jar) {
-    classifier = 'sources'
+    archiveClassifier = 'sources'
     from android.sourceSets.main.java.srcDirs
 }
